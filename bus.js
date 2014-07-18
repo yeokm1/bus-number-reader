@@ -1,6 +1,14 @@
 var bleno = require('bleno');
 
-var name = "MKMS 25";
+var name = "MKMS";
+
+process.argv.forEach(function (val, index, array) {
+  if(index == 2){
+  	name += " " + val;
+
+  }
+});
+
 
 var serviceUUID1 = 'fdee74dca8de31961149d43596c00a4f';
 var serviceUuids = [serviceUUID1];
