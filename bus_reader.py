@@ -69,6 +69,9 @@ def restartNodeWithThisNumber(number):
 
   refreshLCD()
 
+def shutdown():
+  lcd.clear()
+  os.system("poweroff")
 
 def refreshLCD():
   textToShow = str(busNumber) + broadcastNumberText + str(broadcastingNumber)
@@ -88,8 +91,10 @@ while True:
       busNumber -= 1
       refreshLCD()
       saveNumberToFile(busNumber)
-    elif lcd.buttonPressed(lcd.SELECT) and shouldIProcessThisPress():
+    elif lcd.buttonPressed(lcd.RIGHT) and shouldIProcessThisPress():
       restartNodeWithThisNumber(busNumber)
+    elif lcd.buttonPressed(lcd.SELECT) and shouldIProcessThisPress():
+      shutdown()
 
 
   
