@@ -19,6 +19,7 @@ sleep(1)
 filename = "/home/pi/bus_number.txt"
 killCommand = ["/home/pi/bus-number/killnode.sh"]
 nodeCommand = "node /home/pi/bus-number/bus.js "
+broadcastNumberText = "\nBroadcasting "
 
 debounceTime = 100
 
@@ -26,13 +27,15 @@ f = open(filename, 'r')
 line = f.readline()
 f.close()
 
-previousPressedTime = None
+
 
 busNumber = int(line)
+broadcastingNumber = busNumber;
 
 print busNumber
-lcd.message(line)
 
+def getTime():
+  return int(round(time.time() * 1000))
 
 def shouldIProcessThisPress():
   global previousPressedTime
@@ -44,8 +47,7 @@ def shouldIProcessThisPress():
   else:
     return False
 
-def getTime():
-  return int(round(time.time() * 1000))
+
 
 def saveNumberToFile(number):
   f = open(filename, 'w')
@@ -53,27 +55,38 @@ def saveNumberToFile(number):
   f.write(numString)
   f.close()
 
+
+
+
 def restartNodeWithThisNumber(number):
+  global broadcastingNumber
+  broadcastingNumber = number
   commandToRun = nodeCommand + str(number) + " &"
   print "kill"
   call(killCommand)
   print "node command " + commandToRun
   os.system(commandToRun)
 
+  refreshLCD()
+
+
+def refreshLCD():
+  textToShow = str(busNumber) + broadcastNumberText + str(broadcastingNumber)
+  lcd.clear()
+  lcd.message(textToShow)
 
 
 previousPressedTime = getTime()
+restartNodeWithThisNumber(busNumber)
 
 while True:
     if lcd.buttonPressed(lcd.UP) and shouldIProcessThisPress():
       busNumber += 1
-      lcd.clear()
-      lcd.message(busNumber)
+      refreshLCD()
       saveNumberToFile(busNumber)
     elif lcd.buttonPressed(lcd.DOWN) and shouldIProcessThisPress():
       busNumber -= 1
-      lcd.clear()
-      lcd.message(busNumber)
+      refreshLCD()
       saveNumberToFile(busNumber)
     elif lcd.buttonPressed(lcd.SELECT) and shouldIProcessThisPress():
       restartNodeWithThisNumber(busNumber)
