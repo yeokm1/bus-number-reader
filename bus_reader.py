@@ -18,8 +18,8 @@ sleep(1)
 
 filename = "/home/pi/bus_number.txt"
 killCommand = ["/home/pi/bus-number/killnode.sh"]
-nodeCommand = "node /home/pi/bus-number/bus.js "
-broadcastNumberText = "\nBroadcasting "
+nodeCommand = "/usr/local/bin/node /home/pi/bus-number/bus.js "
+broadcastNumberText = "Broadcasting "
 
 debounceTime = 100
 
@@ -74,7 +74,7 @@ def shutdown():
   os.system("poweroff")
 
 def refreshLCD():
-  textToShow = str(busNumber) + broadcastNumberText + str(broadcastingNumber)
+  textToShow = broadcastNumberText + str(broadcastingNumber) + "\n" + str(busNumber)
   lcd.clear()
   lcd.message(textToShow)
 
