@@ -9,4 +9,3 @@ bus_reader.py requires Adafruit_CharLCDPlate library. https://github.com/adafrui
 
 bus.js requires the bleno library. Just "npm install".
 
-The Android code may be added at a later date.
