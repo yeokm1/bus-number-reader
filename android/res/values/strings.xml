@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mkms_android</string>
+    <string name="hello_world">Hello world</string>
+    <string name="action_settings">Settings</string>
+    <string name="feed"></string>
+    <string name="start_bluetooth">Start</string>
+	<string name="stop_bluetooth">Stop</string>
+	<string name="clear_feed">Clear</string>
+	<string name="header">Bus Bluetooth</string>
+	<string name="voice">Start Voice Recognition</string>
+</resources>

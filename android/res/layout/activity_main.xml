@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mkms_android.MainActivity" >
+
+    <Button
+        android:id="@+id/clear_feed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/stop_btn"
+        android:layout_alignBottom="@+id/stop_btn"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/stop_btn"
+        android:onClick="clearFeed"
+        android:text="@string/clear_feed" />
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/stop_btn"
+        android:layout_alignBottom="@+id/stop_btn"
+        android:layout_marginRight="21dp"
+        android:layout_toLeftOf="@+id/stop_btn"
+        android:minHeight="48dp"
+        android:onClick="startBluetooth"
+        android:text="@string/start_bluetooth" />
+
+    <Button
+        android:id="@+id/stop_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:minHeight="48dp"
+        android:onClick="stopBluetooth"
+        android:text="@string/stop_bluetooth" />
+
+    <Button
+        android:id="@+id/voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/start_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/clear_feed"
+        android:minHeight="300dp"
+        android:onClick="voiceRecognition"
+        android:text="@string/voice" />
+
+    <TextView
+        android:id="@+id/bluetooth_feed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clear_feed"
+        android:layout_alignLeft="@+id/start_btn"
+        android:layout_alignRight="@+id/voice"
+        android:layout_below="@+id/voice"
+        android:text="@string/feed" />
+
+</RelativeLayout>
