@@ -2,7 +2,7 @@
 #include <boards.h>
 #include <RBL_nRF8001.h>
 
-#include <LiquidCrystal.h> //Replaces the LiquidCrystal.h
+#include <LiquidCrystal.h>
 #include <EEPROM.h>
 #include <Wire.h>
 
