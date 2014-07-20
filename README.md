@@ -1,7 +1,7 @@
 bus-number
 ==========
 
-This repository is for my team's work at the code::XtremeApps:: 2014 Hackathon.  It comprises of both the Raspberry Pi Node.js and Python code as well as the Arduino code. Bear in mind this is hackathon quality code, a messy proof-of-concept.
+This repository is for my team's work at the code::XtremeApps:: 2014 Hackathon.  It comprises the Raspberry Pi Node.js and Python code,Arduino code and Android code in their respective folders  Bear in mind this is hackathon quality code, a messy proof-of-concept.
 
 Please read my blog post http://yeokhengmeng.com/2014/07/codextremeapps-2014-aar/ for more details
 
